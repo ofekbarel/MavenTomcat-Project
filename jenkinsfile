@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    
+    environment {
+        
+        registryName = "ofekmavenporject"
+        registryCredential = "ACR"
+        registryUrl = "ofekmavenporject.azurecr.io"
+        dockerImage = ""
+    }    
+    
+
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ofekbarel/MavenTomcat-Project'
+            }
+        }
+        
+        stage('build image') {
+            steps {
+                script {
+                    dockerImage = docker.build registryName 
+                }
+            }
+      }
+
+
+        
+        stage('push to azure registry') {
+            steps {
+                script {
+                    docker.withRegistry(" http://${registryUrl}", registryCredential) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
+        
+    }
+}
