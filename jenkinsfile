@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools{
+        maven 'maven'
+    }
     
     environment {
         
@@ -16,14 +19,22 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/ofekbarel/MavenTomcat-Project'
             }
         }
-        
+
+
+        stage('build maven') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+
         stage('build image') {
             steps {
                 script {
                     dockerImage = docker.build registryName 
                 }
             }
-      }
+        }
 
 
         
@@ -38,4 +49,4 @@ pipeline {
         }
         
     }
-}
+}    
