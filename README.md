@@ -82,6 +82,31 @@ We will open webapp serivce, a Linux type that runs containers and later will ru
 ![Image alt text](images/webapp.jpg)
 
 
+---
+
+## Jenkins
+**create credentials to connect to ACR from Jenkins** :
+Inside the azure portal, enter the ACR we created, then the 'Access key'.
+We will create a new credential in Jenkins called 'ACR', and use the username and password according to the access key.
+
+
+**Create service principal** :
+In the azure portal, we need to create a service principal with Contributor permissions that will be used by Jenkins to update the tag.
+After that enter it as a credential in Jenkins.
+
+**Create CI pipeline (jenkinsfile)** :
+We will create a pipeline with a link to our git folder, which will check if there is a change in the code every 5 minutes.
+if there is a change it will run the pipeline which will build the docker image and push it into the ACR we created in Azure.
+If the pipeline is successful, a trigger will be made for the pipeline of the CD.
+
+
+**Create CD pipeline (jenkinsfileCD)** :
+This pipeline will be automatically activated according to the CI pipeline.
+After the new docker image is built with tag latest, this pipeline will configure azure webapp to pull the new image.
+
+
+![Image alt text](images/jenkins.jpg)
+
 
 
 
