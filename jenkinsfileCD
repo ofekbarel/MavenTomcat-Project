@@ -8,7 +8,7 @@ pipeline{
 
         stage ('az login') {
             steps {
-                sh 'sh az login --service-principal -u $MY_CRED_CLINET_ID -p $MY_CRED_CLINET_SECRET -t $MY_CRED_TENANT_ID'
+                sh 'az login --service-principal -u $MY_CRED_CLINET_ID -p $MY_CRED_CLINET_SECRET -t $MY_CRED_TENANT_ID'
             }
         }
 
