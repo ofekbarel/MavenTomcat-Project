@@ -1,0 +1,22 @@
+pipeline{                     
+    agent any
+    environment
+        MY_CRED = credentials('azure_cred')
+
+    stages {
+
+
+        stage ('az login') {
+            steps {
+                sh 'az login --service-principal -u $MY_CRED_CLINET_ID -p $MY_CRED_CLINET_SECRET -t $MY_CRED_TENANT_ID'
+            }
+        }
+
+
+        stage ('change docker tag') {
+            steps {
+                sh 'az webapp config container set --name maventomcat-webapp --resource-group rg --docker-custom-image-name ofekmavenporject.azurecr.io/ofekmavenporject:latest ' 
+            }
+        }
+    }
+}

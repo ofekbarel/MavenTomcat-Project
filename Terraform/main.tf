@@ -122,6 +122,24 @@ resource "azurerm_virtual_machine" "example" {
 
 }
 
+resource "null_resource" installJava{
+  depends_on = [ azurerm_virtual_machine.example ]
+  provisioner "remote-exec" {
+    inline = [ 
+      "sudo apt-get update",
+      "sudo apt install openjdk-17-jre",
+      "java -version"
+     ]
+
+  connection {
+    host     = azurerm_public_ip.web_public_ip.ip_address
+    type     = "ssh"
+    user     = "azureuser"
+    password = var.web_vm_admin_password
+    agent    = "false"
+    }
+ }
+}
 
 resource "null_resource" copyfiles {
   depends_on = [ azurerm_virtual_machine.example ]
