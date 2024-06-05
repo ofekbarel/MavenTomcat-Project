@@ -79,7 +79,7 @@ Inside the auzre portal, an ACR will be opened that will contain the images buil
 **Webapp Service**
 We will open webapp serivce, a Linux type that runs containers and later will run our application.
 
-![Image alt text](images/webapp.png)
+![Image alt text](images/webapp.jpg)
 
 
 
