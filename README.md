@@ -14,6 +14,14 @@ We will change the image tag for our webbapp that runs in Azure, and thus we can
 
 
 ## stpes : 🔨
+
+## Web Application with Maven :
+Our application is a simple code for a web app that will use a .war file that will eventually run with tomcat.
+![Image alt text](images/maven.png)
+![Image alt text](images/tomcat.png)
+
+---
+
 ### Terraform - set up a virtual machine in Azure ⛅ :
 
 At this stage we will first set up a virtual machine in azure, of course we will also need vnet, subnet, nsg, public ip and more..
