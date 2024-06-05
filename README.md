@@ -16,8 +16,9 @@ We will change the image tag for our webbapp that runs in Azure, and thus we can
 ## stpes : 🔨
 
 ## Web Application with Maven :
-Our application is a simple code for a web app that will use a .war file that will eventually run with tomcat.
-![Image alt text](images/maven.png)
+We will create a simple web app using maven.
+In the end the application will create a .war file for us which will run with the help of tomcat.
+![Image alt text](images/Maven.png)
 ![Image alt text](images/tomcat.png)
 
 ---
