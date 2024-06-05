@@ -36,5 +36,32 @@ Finally, you we do the following commands:
 
 ## Setup the Virual machine :
 After our machine is in the air, we will connect to it with SSH, and with the password we set in terraform.tfvars.
-We will have to install various tools on the machine, such as docker, maven, git, and azure cli.
+We will have to install various tools on the machine, such as docker, maven and azure cli.
 Because this machine will be used as an agent for Jenkins.
+
+**install Docker**
+```bash
+  sudo apt-get update
+  sudo apt install docker.io
+  sudo usermod -aG docker $USER
+  sudo usermode -aG docker jenkins
+```
+
+**install azure cli**
+```bash
+  Refer --- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+**install maven**
+```bash
+  wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  tar -xvf apache-maven-3.6.3-bin.tar.gz
+  mv apache-maven-3.6.3 /opt/
+
+  M2_HOME='/opt/apache-maven-3.6.3'
+  PATH="$M2_HOME/bin:$PATH"
+  export PATH
+```
+
+
