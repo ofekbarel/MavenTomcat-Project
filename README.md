@@ -65,7 +65,7 @@ Because this machine will be used as an agent for Jenkins.
 ```
 
 ---
-## ACR & Webapp Service :
+## Create ACR & Webapp Service :
 
 
 **ACR**
@@ -84,6 +84,6 @@ We will open webapp serivce, a Linux type that runs containers and later will ru
 
 
 
-שז
+
 
 
