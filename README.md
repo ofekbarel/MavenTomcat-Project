@@ -10,3 +10,21 @@ We will change the image tag for our webbapp that runs in Azure, and thus we can
 ![Image alt text](images/diagram.png)
 
 
+---
+
+
+## stpes : 🔨
+### Terraform - set up a virtual machine in Azure :
+
+At this stage we will first set up a virtual machine in azure, of course we will also need vnet, subnet, nsg, public ip and more..
+Inside the main.tf file we define all these components, including opening port 22 and 8080 in order to allow jenkins to run, and for us to connect to the machine.
+The machine will receive a password according to terraform.tfvars which is in .gitignore and contains sensitive information.
+Finally, you we do the following commands:
+
+**terraform init**
+
+**terraform plan -out=tfplan**
+
+**terraform apply tfplan**
+
+
