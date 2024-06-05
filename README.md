@@ -7,4 +7,6 @@ After that, he will package the application using docker that will be built acco
 After that we will reach the CD part, this process will also run with jenkins.
 We will change the image tag for our webbapp that runs in Azure, and thus we can assign the tags according to the latest image in ACR
 
+![Image alt text](images/diagram.png)
+
 
