@@ -65,6 +65,25 @@ Because this machine will be used as an agent for Jenkins.
 ```
 
 ---
-## Jenkins 👴 :
+## ACR & Webapp Service :
+
+
+**ACR**
+Inside the auzre portal, an ACR will be opened that will contain the images built for our application.
+
+![Image alt text](images/ACR.png)
+
+
+
+
+**Webapp Service**
+We will open webapp serivce, a Linux type that runs containers and later will run our application.
+
+![Image alt text](images/webapp.png)
+
+
+
+
+שז
 
 
