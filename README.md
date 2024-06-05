@@ -14,7 +14,7 @@ We will change the image tag for our webbapp that runs in Azure, and thus we can
 
 
 ## stpes : 🔨
-### Terraform - set up a virtual machine in Azure :
+### Terraform - set up a virtual machine in Azure ⛅ :
 
 At this stage we will first set up a virtual machine in azure, of course we will also need vnet, subnet, nsg, public ip and more..
 Inside the main.tf file we define all these components, including opening port 22 and 8080 in order to allow jenkins to run, and for us to connect to the machine.
@@ -28,3 +28,13 @@ Finally, you we do the following commands:
 **terraform apply tfplan**
 
 
+![Image alt text](images/Terraform.png)
+
+
+---
+
+
+## Setup the Virual machine :
+After our machine is in the air, we will connect to it with SSH, and with the password we set in terraform.tfvars.
+We will have to install various tools on the machine, such as docker, maven, git, and azure cli.
+Because this machine will be used as an agent for Jenkins.
