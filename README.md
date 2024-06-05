@@ -14,6 +14,15 @@ We will change the image tag for our webbapp that runs in Azure, and thus we can
 
 
 ## stpes : 🔨
+
+## Web Application with Maven :
+We will create a simple web app using maven.
+In the end the application will create a .war file for us which will run with the help of tomcat.
+![Image alt text](images/Maven.png)
+![Image alt text](images/tomcat.png)
+
+---
+
 ### Terraform - set up a virtual machine in Azure ⛅ :
 
 At this stage we will first set up a virtual machine in azure, of course we will also need vnet, subnet, nsg, public ip and more..
@@ -63,5 +72,52 @@ Because this machine will be used as an agent for Jenkins.
   PATH="$M2_HOME/bin:$PATH"
   export PATH
 ```
+
+---
+## Create ACR & Webapp Service :
+
+
+**ACR**
+Inside the auzre portal, an ACR will be opened that will contain the images built for our application.
+
+![Image alt text](images/ACR.png)
+
+
+
+
+**Webapp Service**
+We will open webapp serivce, a Linux type that runs containers and later will run our application.
+
+![Image alt text](images/webapp.jpg)
+
+
+---
+
+## Jenkins
+**create credentials to connect to ACR from Jenkins** :
+Inside the azure portal, enter the ACR we created, then the 'Access key'.
+We will create a new credential in Jenkins called 'ACR', and use the username and password according to the access key.
+
+
+**Create service principal** :
+In the azure portal, we need to create a service principal with Contributor permissions that will be used by Jenkins to update the tag.
+After that enter it as a credential in Jenkins.
+
+**Create CI pipeline (jenkinsfile)** :
+We will create a pipeline with a link to our git folder, which will check if there is a change in the code every 5 minutes.
+if there is a change it will run the pipeline which will build the docker image and push it into the ACR we created in Azure.
+If the pipeline is successful, a trigger will be made for the pipeline of the CD.
+
+
+**Create CD pipeline (jenkinsfileCD)** :
+This pipeline will be automatically activated according to the CI pipeline.
+After the new docker image is built with tag latest, this pipeline will configure azure webapp to pull the new image.
+
+
+![Image alt text](images/jenkins.jpg)
+
+
+
+
 
 
